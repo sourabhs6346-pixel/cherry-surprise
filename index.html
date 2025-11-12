@@ -4,104 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Cherry 💖</title>
+
+<!-- Google Fonts: Great Vibes (Mehroon-style) -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(to bottom, #ffe6f0, #ffcccc);
-        color: #800000;
+        font-family: 'Great Vibes', cursive; 
         text-align: center;
         height: 100vh;
         overflow: hidden;
+        color: #ff4d6d; /* soft pink-red font */
+        background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)),
+                    url('https://images.unsplash.com/photo-1541602242123-0b8d1d97f6b4?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+        background-size: cover;
     }
+
     h1 {
-        font-size: 3em;
+        font-size: 4em;
         margin-top: 50px;
-        animation: fadeIn 2s ease-in-out;
+        text-shadow: 2px 2px 15px rgba(255,0,50,0.7); /* soft glow */
     }
+
     p {
-        font-size: 1.5em;
+        font-size: 2em;
         margin: 20px auto;
         max-width: 700px;
-        animation: fadeIn 4s ease-in-out;
+        text-shadow: 1px 1px 10px rgba(255,0,50,0.5); /* soft shadow/glow */
+        line-height: 1.4;
     }
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
+
+    /* Hearts animation */
     .hearts {
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100%;
-        overflow: hidden;
-        top: 0;
-        left: 0;
         pointer-events: none;
+        z-index: 5;
     }
+
     .hearts div {
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background: red;
+        width: 25px;
+        height: 25px;
+        background: rgba(255,0,50,0.8);
         transform: rotate(45deg);
         animation: floatUp linear infinite;
-        opacity: 0.8;
+        opacity: 0.7;
+        box-shadow: 0 0 10px rgba(255,0,50,0.8);
     }
+
     .hearts div::before,
     .hearts div::after {
         content: '';
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background: red;
+        width: 25px;
+        height: 25px;
+        background: rgba(255,0,50,0.8);
         border-radius: 50%;
     }
-    .hearts div::before {
-        top: -10px;
-        left: 0;
-    }
-    .hearts div::after {
-        left: 10px;
-        top: 0;
-    }
+
+    .hearts div::before { top: -12px; left: 0; }
+    .hearts div::after { left: 12px; top: 0; }
+
     @keyframes floatUp {
-        0% {transform: translateY(100vh) rotate(45deg);}
-        100% {transform: translateY(-100vh) rotate(45deg);}
+        0% { transform: translateY(100vh) rotate(45deg); }
+        100% { transform: translateY(-100vh) rotate(45deg); }
+    }
+
+    button {
+        font-size: 1.5em;
+        padding: 12px 25px;
+        margin-top: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(45deg, #ff5c8d, #ff84b0);
+        color: white;
+        box-shadow: 2px 2px 15px rgba(255,0,50,0.6);
+        position: relative;
+        z-index: 10;
+        font-family: 'Great Vibes', cursive;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: 2px 2px 20px rgba(255,0,50,0.8);
+    }
+
+    audio {
+        display: none;
     }
 </style>
 </head>
 <body>
-<h1>For Cherry 💖</h1>
-<p>My dearest Cherry,  
-It feels like just yesterday we met on <strong>14th November last year</strong>, and here we are again — only <strong>2 days away</strong> from seeing each other! My heart is racing with excitement, and I can’t stop thinking about the moment I’ll finally be with you. Every second apart has made me realize even more how much you mean to me. Get ready, my love… our reunion is almost here ❤️</p>
+    <h1>For Cherry 💖</h1>
+    <p>My dearest Cherry,<br>
+       It feels like just yesterday we met on <strong>14th November last year</strong>, and here we are again — only <strong>2 days away</strong> from seeing each other! My heart is racing with excitement, and I can’t stop thinking about the moment I’ll finally be with you. Every second apart has made me realize even more how much you mean to me. Get ready, my love… our reunion is almost here ❤️
+    </p>
 
-<div class="hearts">
-  <div style="left:10%; animation-duration:8s;"></div>
-  <div style="left:20%; animation-duration:6s;"></div>
-  <div style="left:30%; animation-duration:7s;"></div>
-  <div style="left:40%; animation-duration:9s;"></div>
-  <div style="left:50%; animation-duration:5s;"></div>
-  <div style="left:60%; animation-duration:8s;"></div>
-  <div style="left:70%; animation-duration:6s;"></div>
-  <div style="left:80%; animation-duration:7s;"></div>
-  <div style="left:90%; animation-duration:9s;"></div>
-</div>
+    <!-- Hearts animation -->
+    <div class="hearts">
+        <div style="left:10%; animation-duration:8s;"></div>
+        <div style="left:20%; animation-duration:6s;"></div>
+        <div style="left:30%; animation-duration:7s;"></div>
+        <div style="left:40%; animation-duration:9s;"></div>
+        <div style="left:50%; animation-duration:5s;"></div>
+        <div style="left:60%; animation-duration:8s;"></div>
+        <div style="left:70%; animation-duration:6s;"></div>
+        <div style="left:80%; animation-duration:7s;"></div>
+        <div style="left:90%; animation-duration:9s;"></div>
+    </div>
 
- <button onclick="document.getElementById('ytplayer').play()">Play Our Song</button>
-<iframe id="ytplayer" width="0" height="0"
-src="https://www.youtube.com/embed/Jpq9tm0gnTM?enablejsapi=1&loop=1&playlist=Jpq9tm0gnTM"
-frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <!-- Play button -->
+    <button onclick="playSong()">🎵 Play Our Song</button>
 
+    <!-- Audio element -->
+    <audio id="song" loop>
+        <source src="YOUR_PUBLIC_MP3_LINK_HERE.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-
+    <script>
+        function playSong() {
+            var song = document.getElementById('song');
+            song.play();
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
