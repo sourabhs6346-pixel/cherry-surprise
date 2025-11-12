@@ -17,21 +17,36 @@
     <div style="left:90%; animation-duration:9s;"></div>
   </div>
 
-  <!-- YouTube audio iframe -->
-  <iframe id="ytplayer" width="0" height="0"
-    src="https://www.youtube.com/embed/Jpq9tm0gnTM?enablejsapi=1&loop=1&playlist=Jpq9tm0gnTM"
-    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
   <!-- Play button -->
   <button onclick="playSong()" style="font-size:1.2em; padding:10px 20px; margin-top:20px; cursor:pointer;">
     🎵 Play Our Song
   </button>
 
+  <!-- Hidden YouTube iframe -->
+  <div id="player"></div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    var player;
+
+    // This function creates an <iframe> (and YouTube player) after API code downloads
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '0',
+        width: '0',
+        videoId: 'Jpq9tm0gnTM',
+        playerVars: { 
+          'autoplay': 0, 
+          'loop': 1, 
+          'playlist': 'Jpq9tm0gnTM'
+        }
+      });
+    }
+
     function playSong() {
-      var iframe = document.getElementById('ytplayer');
-      // PostMessage API to control YouTube iframe
-      iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      if(player) {
+        player.playVideo();
+      }
     }
   </script>
 </body>
