@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Cherry 💖</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to bottom, #ffe6f0, #ffcccc);
+        color: #800000;
+        text-align: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 3em;
+        margin-top: 50px;
+        animation: fadeIn 2s ease-in-out;
+    }
+    p {
+        font-size: 1.5em;
+        margin: 20px auto;
+        max-width: 700px;
+        animation: fadeIn 4s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    .hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+    }
+    .hearts div {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        transform: rotate(45deg);
+        animation: floatUp linear infinite;
+        opacity: 0.8;
+    }
+    .hearts div::before,
+    .hearts div::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 50%;
+    }
+    .hearts div::before {
+        top: -10px;
+        left: 0;
+    }
+    .hearts div::after {
+        left: 10px;
+        top: 0;
+    }
+    @keyframes floatUp {
+        0% {transform: translateY(100vh) rotate(45deg);}
+        100% {transform: translateY(-100vh) rotate(45deg);}
+    }
+</style>
+</head>
+<body>
+<h1>For Cherry 💖</h1>
+<p>My dearest Cherry,  
+It feels like just yesterday we met on <strong>14th November last year</strong>, and here we are again — only <strong>2 days away</strong> from seeing each other! My heart is racing with excitement, and I can’t stop thinking about the moment I’ll finally be with you. Every second apart has made me realize even more how much you mean to me. Get ready, my love… our reunion is almost here ❤️</p>
+
+<div class="hearts">
+  <div style="left:10%; animation-duration:8s;"></div>
+  <div style="left:20%; animation-duration:6s;"></div>
+  <div style="left:30%; animation-duration:7s;"></div>
+  <div style="left:40%; animation-duration:9s;"></div>
+  <div style="left:50%; animation-duration:5s;"></div>
+  <div style="left:60%; animation-duration:8s;"></div>
+  <div style="left:70%; animation-duration:6s;"></div>
+  <div style="left:80%; animation-duration:7s;"></div>
+  <div style="left:90%; animation-duration:9s;"></div>
+</div>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+</body>
+</html>
