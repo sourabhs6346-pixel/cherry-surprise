@@ -9,25 +9,29 @@
         margin: 0;
         padding: 0;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #fff;
         text-align: center;
         height: 100vh;
         overflow: hidden;
-        background: url('https://images.unsplash.com/photo-1541602242123-0b8d1d97f6b4?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+        color: #800000; /* deep red font */
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                    url('https://images.unsplash.com/photo-1541602242123-0b8d1d97f6b4?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
         background-size: cover;
     }
+
     h1 {
         font-size: 3em;
         margin-top: 50px;
-        text-shadow: 2px 2px 8px #000;
+        text-shadow: 2px 2px 8px #000; /* subtle shadow for readability */
     }
+
     p {
         font-size: 1.5em;
         margin: 20px auto;
         max-width: 700px;
-        text-shadow: 1px 1px 6px #000;
+        text-shadow: 1px 1px 6px #000; /* subtle shadow */
     }
-    /* Hearts styling */
+
+    /* Hearts animation */
     .hearts {
         position: fixed;
         width: 100%;
@@ -35,6 +39,7 @@
         pointer-events: none;
         z-index: 5;
     }
+
     .hearts div {
         position: absolute;
         width: 20px;
@@ -45,6 +50,7 @@
         opacity: 0.9;
         box-shadow: 0 0 5px #ff0000;
     }
+
     .hearts div::before,
     .hearts div::after {
         content: '';
@@ -54,12 +60,15 @@
         background: red;
         border-radius: 50%;
     }
+
     .hearts div::before { top: -10px; left: 0; }
     .hearts div::after { left: 10px; top: 0; }
+
     @keyframes floatUp {
         0% { transform: translateY(100vh) rotate(45deg); }
         100% { transform: translateY(-100vh) rotate(45deg); }
     }
+
     button {
         font-size: 1.2em;
         padding: 10px 20px;
@@ -73,14 +82,10 @@
         position: relative;
         z-index: 10;
     }
-    /* Small player container */
-    #player {
-        position: absolute;
-        top: -1000px; /* hide the player off-screen */
-        left: -1000px;
-        width: 200px;
-        height: 50px;
-        z-index: 0;
+
+    /* Optional: Hide the audio player */
+    audio {
+        display: none;
     }
 </style>
 </head>
@@ -106,30 +111,16 @@
     <!-- Play button -->
     <button onclick="playSong()">🎵 Play Our Song</button>
 
-    <!-- Hidden YouTube iframe (off-screen) -->
-    <div id="player"></div>
+    <!-- Audio element -->
+    <audio id="song" loop>
+        <source src="YOUR_PUBLIC_MP3_LINK_HERE.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-    <!-- YouTube IFrame API -->
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '50',
-                width: '200',
-                videoId: 'Jpq9tm0gnTM',
-                playerVars: { 
-                    'autoplay': 0, 
-                    'loop': 1, 
-                    'playlist': 'Jpq9tm0gnTM'
-                }
-            });
-        }
-
         function playSong() {
-            if(player) {
-                player.playVideo();
-            }
+            var song = document.getElementById('song');
+            song.play();
         }
     </script>
 </body>
