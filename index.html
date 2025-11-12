@@ -1,48 +1,43 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #800000;
-    text-align: center;
-    height: 100vh;
-    overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1541602242123-0b8d1d97f6b4?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
-    background-size: cover;
-}
+<!-- Hidden YouTube player (kept in DOM, behind hearts) -->
+<div id="player" style="position:absolute; top:0; left:0; width:0; height:0; z-index:0;"></div>
 
-.hearts {
-    position: fixed; /* fixed so it floats over the background */
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 10; /* make sure hearts are above everything */
-}
+<!-- Hearts overlay -->
+<div class="hearts">
+    <div style="left:10%; animation-duration:8s;"></div>
+    <div style="left:20%; animation-duration:6s;"></div>
+    <div style="left:30%; animation-duration:7s;"></div>
+    <div style="left:40%; animation-duration:9s;"></div>
+    <div style="left:50%; animation-duration:5s;"></div>
+    <div style="left:60%; animation-duration:8s;"></div>
+    <div style="left:70%; animation-duration:6s;"></div>
+    <div style="left:80%; animation-duration:7s;"></div>
+    <div style="left:90%; animation-duration:9s;"></div>
+</div>
 
-.hearts div {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red; /* bright red hearts */
-    transform: rotate(45deg);
-    animation: floatUp linear infinite;
-    opacity: 0.9;
-    box-shadow: 0 0 5px #ff0000; /* glow effect */
-}
+<!-- Play button (on top) -->
+<button onclick="playSong()" style="position: relative; z-index:20; font-size:1.2em; padding:10px 20px; margin-top:20px; cursor:pointer;">
+    🎵 Play Our Song
+</button>
 
-.hearts div::before,
-.hearts div::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: red;
-    border-radius: 50%;
-}
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '0',
+            width: '0',
+            videoId: 'Jpq9tm0gnTM',
+            playerVars: { 
+                'autoplay': 0, 
+                'loop': 1, 
+                'playlist': 'Jpq9tm0gnTM'
+            }
+        });
+    }
 
-.hearts div::before { top: -10px; left: 0; }
-.hearts div::after { left: 10px; top: 0; }
-
-@keyframes floatUp {
-    0% { transform: translateY(100vh) rotate(45deg); }
-    100% { transform: translateY(-100vh) rotate(45deg); }
-}
+    function playSong() {
+        if(player) {
+            player.playVideo();
+        }
+    }
+</script>
